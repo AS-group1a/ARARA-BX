@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arara BX — General Contracting</title>
+<meta name="description" content="Arara BX is a general contractor delivering structural, residential, commercial and renewable-energy projects — from design and permitting through construction and handover.">
+<meta property="og:title" content="Arara BX — General Contracting">
+<meta property="og:description" content="Structural, residential, commercial and renewable-energy projects, end to end.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ararabx.com/">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<template id="__bundler_thumbnail" data-bg-color="#1F4F9E">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1F4F9E"/>
+    <rect x="486" y="286" width="228" height="228" fill="#ffffff"/>
+    <rect x="527" y="370" width="146" height="60" fill="none" stroke="#1F4F9E" stroke-width="26"/>
+  </svg>
+</template>
+<style>
+  *{box-sizing:border-box;}
+  body{margin:0;background:#FAFAF8;-webkit-font-smoothing:antialiased;}
+  a{color:#1F4F9E;text-decoration:none;}
+  a:hover{color:#12315F;}
+  @keyframes bxPulse{0%,100%{opacity:.35;}50%{opacity:.9;}}
+  ::selection{background:#1F4F9E;color:#fff;}
+  html{scroll-behavior:smooth;}
+</style>
+</helmet>
+
+<div dir="{{ dir }}" ref="{{ setRoot }}" style="width:100%;overflow-x:hidden;color:#0A0F1E;font-family:'Sora','IBM Plex Sans Arabic',sans-serif;background:#FAFAF8;">
+
+  <!-- ================= NAV ================= -->
+  <nav style="position:sticky;top:0;z-index:50;background:var(--navBg,rgba(255,255,255,.97));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #0A0F1E;">
+    <div style="max-width:1360px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <a href="#top" style="display:flex;align-items:center;gap:11px;color:inherit;">
+        <div style="width:34px;height:34px;background:#1F4F9E;display:flex;align-items:center;justify-content:center;">
+          <div style="width:18px;height:9px;border-radius:5px;border:2.5px solid #fff;box-sizing:border-box;"></div>
+        </div>
+        <span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--navInk,#0A0F1E);">ARARA<span style="color:#1F4F9E;">BX</span></span>
+      </a>
+      <div style="display:flex;align-items:center;gap:26px;font-family:'Archivo',sans-serif;font-weight:700;font-size:var(--navSize,15px);letter-spacing:.02em;">
+        <a href="#about" style="color:var(--navLink,#3D4453);">{{ t.navAbout }}</a>
+        <a href="#capabilities" style="color:var(--navLink,#3D4453);">{{ t.navCap }}</a>
+        <a href="#why" style="color:var(--navLink,#3D4453);">{{ t.navWhy }}</a>
+        <a href="#projects" style="color:var(--navLink,#3D4453);">{{ t.navProjects }}</a>
+        <a href="#coverage" style="color:var(--navLink,#3D4453);">{{ t.navCoverage }}</a>
+        <a href="#process" style="color:var(--navLink,#3D4453);">{{ t.navProcess }}</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="position:relative;">
+          <div onClick="{{ toggleLangMenu }}" style="display:flex;align-items:center;gap:8px;border:1px solid var(--navInk,#0A0F1E);font-family:'Archivo',sans-serif;font-size:12.5px;font-weight:700;padding:8px 14px;cursor:pointer;color:var(--navInk,#0A0F1E);user-select:none;">
+            <span>{{ currentLangLabel }}</span>
+            <span style="font-size:9px;">▼</span>
+          </div>
+          <sc-if value="{{ langMenuOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;top:calc(100% + 6px);left:{{ langMenuLeft }};right:{{ langMenuRight }};z-index:60;background:#fff;border:1px solid #0A0F1E;box-shadow:0 14px 30px -12px rgba(10,15,30,.35);min-width:168px;">
+              <sc-for list="{{ langs }}" as="lg">
+                <div onClick="{{ lg.set }}" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 16px;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:600;color:{{ lg.itemColor }};background:{{ lg.itemBg }};border-bottom:1px solid #E3E9F2;" style-hover="background:#F0F3FA;">
+                  <span>{{ lg.name }}</span>
+                  <span style="font-size:11px;font-weight:800;color:#8090A8;">{{ lg.label }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        <a href="#contact" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;color:#fff;background:#0A0F1E;padding:11px 22px;letter-spacing:.02em;" style-hover="background:var(--acc,#E0231C);">{{ t.navCta }}</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <section id="top" style="position:relative;overflow:hidden;background-image:linear-gradient(100deg,rgba(6,12,30,.92) 30%,rgba(10,26,70,.62)),url('uploads/constructionprocess.webp');background-size:cover;background-position:center;">
+    <div style="position:relative;max-width:1360px;margin:0 auto;padding:130px 40px 0;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:30px;">
+        <span style="width:9px;height:9px;background:var(--acc,#E0231C);animation:bxPulse 3s ease-in-out infinite;"></span>
+        <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#8FBBF3;">{{ t.heroBadge }}</span>
+      </div>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(56px,7.4vw,104px);line-height:.98;letter-spacing:-.04em;margin:0 0 30px;color:#fff;max-width:14ch;text-wrap:balance;">{{ t.heroTitle }}</h1>
+      <p style="font-size:19px;line-height:1.7;color:#C4D2EC;max-width:560px;margin:0 0 44px;">{{ t.heroSub }}</p>
+      <div style="display:flex;gap:0;align-items:stretch;flex-wrap:wrap;">
+        <a href="#contact" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#0A0F1E;background:#fff;padding:18px 36px;display:inline-flex;align-items:center;" style-hover="background:var(--acc,#E0231C);color:#fff;">{{ t.ctaPrimary }} ↗</a>
+        <a href="#capabilities" style="font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;color:#fff;padding:18px 34px;border:1px solid rgba(255,255,255,.45);display:inline-flex;align-items:center;" style-hover="border-color:#fff;">{{ t.ctaSecondary }}</a>
+      </div>
+      <!-- stat strip -->
+      <div style="margin-top:80px;border-top:1px solid rgba(255,255,255,.25);display:grid;grid-template-columns:repeat(3,1fr);">
+        <div style="padding:26px 0;border-inline-end:1px solid rgba(255,255,255,.25);">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:34px;color:#fff;">5+</div>
+          <div style="font-size:13.5px;color:#8FBBF3;margin-top:4px;">{{ t.covStat1 }}</div>
+        </div>
+        <div style="padding:26px 0 26px 32px;border-inline-end:1px solid rgba(255,255,255,.25);">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:34px;color:#fff;">24/7</div>
+          <div style="font-size:13.5px;color:#8FBBF3;margin-top:4px;">{{ t.covStat2 }}</div>
+        </div>
+        <div style="padding:26px 0 26px 32px;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:34px;color:#fff;">360°</div>
+          <div style="font-size:13.5px;color:#8FBBF3;margin-top:4px;">{{ t.heroStat3 }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHO WE ARE ================= -->
+  <section id="about" style="border-bottom:1px solid #0A0F1E;">
+    <div style="max-width:1360px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:1fr 1.4fr;gap:60px;">
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);">
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc,#E0231C);">01 — {{ t.whoEyebrow }}</div>
+      </div>
+      <div>
+        <h2 data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:800;font-size:calc(clamp(34px,3.6vw,52px)*var(--tm,1));line-height:1.06;letter-spacing:-.03em;margin:0 0 22px;color:#0A0F1E;text-wrap:balance;">{{ t.whoTitle }}</h2>
+        <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-size:19px;line-height:1.8;color:#4A5264;margin:0 0 44px;max-width:56ch;">{{ t.whoSub }}</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #0A0F1E;">
+          <sc-for list="{{ whoCards }}" as="w" hint-placeholder-count="3">
+            <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);padding:28px 26px;border-inline-end:1px solid #0A0F1E;background:#fff;" style-hover="background:#F0F3FA;">
+              <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#1F4F9E;margin-bottom:12px;">{{ w.k }}</div>
+              <div style="font-size:15px;line-height:1.65;color:#4A5264;">{{ w.d }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CAPABILITIES (list rows) ================= -->
+  <section id="capabilities" style="border-bottom:1px solid #0A0F1E;background:#fff;">
+    <div style="max-width:1360px;margin:0 auto;padding:100px 40px;">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:60px;margin-bottom:56px;">
+        <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc,#E0231C);">02 — {{ t.capEyebrow }}</div>
+        <div>
+          <h2 data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:800;font-size:calc(clamp(34px,3.6vw,52px)*var(--tm,1));line-height:1.06;letter-spacing:-.03em;margin:0 0 16px;color:#0A0F1E;">{{ t.capTitle }}</h2>
+          <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-size:18px;line-height:1.75;color:#4A5264;margin:0;">{{ t.capSub }}</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid #0A0F1E;">
+        <sc-for list="{{ caps }}" as="c" hint-placeholder-count="8">
+          <div data-reveal style="opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);display:grid;grid-template-columns:90px 1fr 1.2fr;gap:24px;align-items:baseline;padding:26px 8px;border-bottom:1px solid #0A0F1E;" style-hover="background:#F0F3FA;">
+            <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:var(--acc,#E0231C);">{{ c.n }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(20px,2vw,28px);letter-spacing:-.02em;margin:0;color:#0A0F1E;">{{ c.t }}</h3>
+            <p style="font-size:15.5px;line-height:1.65;color:#4A5264;margin:0;">{{ c.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY ================= -->
+  <section id="why" style="border-bottom:1px solid #0A0F1E;">
+    <div style="max-width:1360px;margin:0 auto;padding:100px 40px;">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:60px;margin-bottom:56px;">
+        <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc,#E0231C);">03 — {{ t.whyEyebrow }}</div>
+        <div>
+          <h2 data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:800;font-size:calc(clamp(34px,3.6vw,52px)*var(--tm,1));line-height:1.06;letter-spacing:-.03em;margin:0 0 16px;color:#0A0F1E;">{{ t.whyTitle }}</h2>
+          <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-size:18px;line-height:1.75;color:#4A5264;margin:0;">{{ t.whySub }}</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #0A0F1E;background:#0A0F1E;gap:1px;">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+          <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);padding:36px 28px;background:#fff;" style-hover="background:#F0F3FA;">
+            <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:var(--acc,#E0231C);margin-bottom:44px;">{{ p.n }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.02em;margin:0 0 10px;color:#0A0F1E;">{{ p.t }}</h3>
+            <p style="font-size:15px;line-height:1.7;color:#4A5264;margin:0;">{{ p.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECT TYPES ================= -->
+  <section id="projects" style="border-bottom:1px solid #0A0F1E;background:#fff;">
+    <div style="max-width:1360px;margin:0 auto;padding:100px 40px;">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:60px;margin-bottom:56px;">
+        <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc,#E0231C);">04 — {{ t.projEyebrow }}</div>
+        <div>
+          <h2 data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:800;font-size:calc(clamp(34px,3.6vw,52px)*var(--tm,1));line-height:1.06;letter-spacing:-.03em;margin:0 0 16px;color:#0A0F1E;">{{ t.projTitle }}</h2>
+          <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-size:18px;line-height:1.75;color:#4A5264;margin:0;">{{ t.projSub }}</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #0A0F1E;background:#0A0F1E;gap:1px;">
+        <sc-for list="{{ projs }}" as="p" hint-placeholder-count="6">
+          <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);padding:34px 28px;background:#fff;min-height:150px;display:flex;flex-direction:column;justify-content:space-between;gap:26px;" style-hover="background:#F0F3FA;">
+            <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#1F4F9E;">{{ p.k }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(21px,2vw,27px);letter-spacing:-.02em;margin:0;color:#0A0F1E;">{{ p.t }}</h3>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COVERAGE (beirut bg) ================= -->
+  <section id="coverage" style="position:relative;background-image:linear-gradient(100deg,rgba(6,12,30,.93) 35%,rgba(10,26,70,.7)),url('uploads/663a9b73-7a1e-4299-b2c6-904afe8cdef1.webp');background-size:cover;background-position:center;border-bottom:1px solid #0A0F1E;">
+    <div style="max-width:1360px;margin:0 auto;padding:100px 40px;">
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#8FBBF3;margin-bottom:26px;">05 — {{ t.covEyebrow }}</div>
+      <h2 data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(44px,5.5vw,78px);line-height:1;letter-spacing:-.04em;margin:0 0 18px;color:#fff;">{{ t.covTitle }}</h2>
+      <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-size:18px;line-height:1.75;color:#C4D2EC;margin:0 0 44px;max-width:520px;">{{ t.covSub }} {{ t.covCaption }}</p>
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);display:flex;flex-wrap:wrap;border:1px solid rgba(255,255,255,.4);">
+        <sc-for list="{{ regions }}" as="r" hint-placeholder-count="5">
+          <span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:#fff;padding:16px 28px;border-inline-end:1px solid rgba(255,255,255,.4);" style-hover="background:var(--acc,#E0231C);">{{ r.name }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section id="process" style="border-bottom:1px solid #0A0F1E;">
+    <div style="max-width:1360px;margin:0 auto;padding:100px 40px;">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:60px;margin-bottom:56px;">
+        <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc,#E0231C);">06 — {{ t.procEyebrow }}</div>
+        <div>
+          <h2 data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:'Archivo',sans-serif;font-weight:800;font-size:calc(clamp(34px,3.6vw,52px)*var(--tm,1));line-height:1.06;letter-spacing:-.03em;margin:0 0 16px;color:#0A0F1E;">{{ t.procTitle }}</h2>
+          <p data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-size:18px;line-height:1.75;color:#4A5264;margin:0;">{{ t.procSub }}</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);border-top:3px solid #0A0F1E;padding-top:22px;">
+            <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:56px;line-height:1;color:var(--acc,#E0231C);margin-bottom:18px;">{{ s.n }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;letter-spacing:-.02em;margin:0 0 10px;color:#0A0F1E;">{{ s.t }}</h3>
+            <p style="font-size:15px;line-height:1.7;color:#4A5264;margin:0;">{{ s.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" style="background:#0A0F1E;color:#fff;">
+    <div style="max-width:1360px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:1.3fr 1fr;gap:72px;align-items:start;">
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);">
+        <div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#7CB2F5;margin-bottom:24px;">07 — {{ t.contactEyebrow }}</div>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,4.6vw,64px);line-height:1;letter-spacing:-.035em;margin:0 0 18px;color:#fff;">{{ t.contactTitle }}</h2>
+        <p style="font-size:18px;line-height:1.7;color:#9AA6C0;margin:0 0 38px;max-width:46ch;">{{ t.contactSub }}</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:8px;"><label style="font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9AA6C0;">{{ t.formName }}</label><input style="font-family:inherit;font-size:15px;padding:14px 15px;border:1px solid #333D55;outline:none;background:#111830;color:#fff;"></div>
+          <div style="display:flex;flex-direction:column;gap:8px;"><label style="font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9AA6C0;">{{ t.formEmail }}</label><input style="font-family:inherit;font-size:15px;padding:14px 15px;border:1px solid #333D55;outline:none;background:#111830;color:#fff;"></div>
+          <div style="display:flex;flex-direction:column;gap:8px;grid-column:span 2;"><label style="font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9AA6C0;">{{ t.formType }}</label><input style="font-family:inherit;font-size:15px;padding:14px 15px;border:1px solid #333D55;outline:none;background:#111830;color:#fff;"></div>
+          <div style="display:flex;flex-direction:column;gap:8px;grid-column:span 2;"><label style="font-family:'Archivo',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#9AA6C0;">{{ t.formDetails }}</label><textarea style="font-family:inherit;font-size:15px;padding:14px 15px;border:1px solid #333D55;outline:none;min-height:120px;resize:vertical;background:#111830;color:#fff;"></textarea></div>
+          <div style="grid-column:span 2;"><div style="font-family:'Archivo',sans-serif;font-weight:700;font-size:15.5px;color:#0A0F1E;background:#fff;padding:16px 34px;cursor:pointer;display:inline-block;" style-hover="background:var(--acc,#E0231C);color:#fff;">{{ t.formSend }} ↗</div></div>
+        </div>
+      </div>
+      <div data-reveal data-delay="80" style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);border:1px solid #333D55;padding:36px;background:#111830;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;margin-bottom:26px;color:#fff;">{{ t.infoTitle }}</div>
+        <div style="display:flex;flex-direction:column;gap:24px;">
+          <div><div style="font-family:'Archivo',sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#7CB2F5;margin-bottom:6px;">{{ t.infoEmail }}</div><div style="font-size:16px;color:#E4E9F5;">contact@ararabx.com</div></div>
+          <div><div style="font-family:'Archivo',sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#7CB2F5;margin-bottom:6px;">{{ t.infoPhone }}</div><div style="font-size:16px;color:#E4E9F5;">+961 78 806 291</div></div>
+          <div><div style="font-family:'Archivo',sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#7CB2F5;margin-bottom:6px;">{{ t.infoFollow }}</div><div style="font-size:15.5px;color:#E4E9F5;line-height:1.8;">Instagram · @ararabx<br>Facebook · @ararabx<br>TikTok · @ararabx</div></div>
+          <div><div style="font-family:'Archivo',sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#7CB2F5;margin-bottom:6px;">Web</div><div style="font-size:16px;color:#E4E9F5;">ararabx.com</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1360px;margin:0 auto;padding:22px 40px;border-top:1px solid #333D55;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:17px;color:#fff;">ARARA<span style="color:#7CB2F5;">BX</span></span>
+      <span style="font-size:13px;color:#6A7690;">© 2026 Arara BX · BLD Contracting · ararabx.com</span>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;language&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;English&quot;, &quot;options&quot;: [&quot;English&quot;, &quot;French&quot;, &quot;Italian&quot;, &quot;German&quot;, &quot;Spanish&quot;, &quot;Arabic&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Content&quot; },
+  &quot;accent&quot;: { &quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#E0231C&quot;, &quot;options&quot;: [&quot;#E0231C&quot;, &quot;#FFC61A&quot;, &quot;#2E90E0&quot;, &quot;#1F4F9E&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Style&quot; },
+  &quot;navTheme&quot;: { &quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;White&quot;, &quot;options&quot;: [&quot;White&quot;, &quot;Dark navy&quot;, &quot;Brand blue&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Menu bar&quot; },
+  &quot;menuSize&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 15, &quot;min&quot;: 13, &quot;max&quot;: 19, &quot;step&quot;: 1, &quot;unit&quot;: &quot;px&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Menu bar&quot; },
+  &quot;titleScale&quot;: { &quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 1, &quot;min&quot;: 0.85, &quot;max&quot;: 1.3, &quot;step&quot;: 0.05, &quot;unit&quot;: &quot;\u00d7&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Typography&quot; }
+}">
+const T = {
+  en: {
+    dir: 'ltr',
+    navAbout:'About', navCap:'Capabilities', navWhy:'Why us', navProjects:'Project Types', navCoverage:'Reach', navProcess:'Process', navCta:'Request a bid',
+    heroBadge:'General contracting',
+    heroTitle:'General contracting, built on trust.',
+    heroSub:'We deliver structural, residential, commercial and renewable-energy projects — end to end, from design and permitting through construction and handover.',
+    ctaPrimary:'Request a bid', ctaSecondary:'See our capabilities',
+    heroStat3:'End-to-end delivery',
+    whoEyebrow:'Introduction', whoTitle:'Who we are',
+    whoSub:'Arara BX is a general contractor delivering structural, residential, commercial and renewable-energy projects, wherever our clients build.',
+    whoCards:[{k:'Wherever you build',d:'Mobile teams ready to deploy to any site.'},{k:'Full-service',d:'End-to-end delivery from design and permitting through construction and handover.'},{k:'Four pillars',d:'Execution · Ethics · Transparency · Expertise.'}],
+    capEyebrow:'Capabilities', capTitle:'What we do', capSub:'Integrated capabilities under one accountable team.',
+    caps:[{n:'01',t:'General Contracting',d:'End-to-end project delivery.'},{n:'02',t:'Structural Works',d:'Concrete, steel, foundations.'},{n:'03',t:'Interior Fit-Out',d:'Finishes, MEP, millwork.'},{n:'04',t:'Commercial Projects',d:'Retail, offices, hospitality.'},{n:'05',t:'Residential Villas',d:'Custom homes, built to last.'},{n:'06',t:'Renovation',d:'Heritage to modern updates.'},{n:'07',t:'Solar & Renewables',d:'Solar PV systems & energy.'},{n:'08',t:'Electrical Works',d:'Wiring, lighting, smart systems.'}],
+    whyEyebrow:'Differentiation', whyTitle:'Why choose us', whySub:'Built on engineering, ethics, and accountability.',
+    pillars:[{n:'01',t:'Execution',d:'Projects delivered on time, every time. Daily oversight, weekly reviews.'},{n:'02',t:'Ethics',d:'Honest pricing. No surprise change orders. No shortcuts on materials.'},{n:'03',t:'Transparency',d:'Clear communication from first quote to final handover.'},{n:'04',t:'Expertise',d:'Skilled teams, modern methods, proven results across project types.'}],
+    projEyebrow:'Project Types', projTitle:'What we can build',
+    projSub:'The types of projects we can deliver \u2014 from private villas to hospitals, residential buildings, and commercial spaces.',
+    projs:[{k:'Residential',t:'Private Villas'},{k:'Healthcare',t:'Hospitals & Clinics'},{k:'Residential',t:'Apartment Buildings'},{k:'Commercial',t:'Offices & Retail'},{k:'Hospitality',t:'Hotels & Resorts'},{k:'Energy',t:'Solar & Renewables'}],
+    covEyebrow:'Reach', covTitle:'Wherever the project is', covSub:'Mobile teams, ready to deploy. Wherever the project is, we get there.',
+    covCaption:'',
+    regions:[{name:'Residential'},{name:'Commercial'},{name:'Healthcare'},{name:'Hospitality'},{name:'Energy'}],
+    covStat1:'Sectors covered', covStat2:'Response to any site',
+    procEyebrow:'Process', procTitle:'How we work', procSub:'Four steps. No surprises.',
+    steps:[{n:'01',t:'Consult',d:'Understand your vision, site, and constraints in person.'},{n:'02',t:'Plan',d:'Detailed scope, transparent pricing, realistic timeline.'},{n:'03',t:'Build',d:'Skilled teams, daily oversight, strict quality control.'},{n:'04',t:'Deliver',d:'On schedule, on budget, with full documentation.'}],
+    contactEyebrow:'Contact', contactTitle:'Get in touch', contactSub:'Tell us about the space and the timeline. We\u2019ll reply within one business day.',
+    formName:'Name', formEmail:'Email', formType:'Type of work', formDetails:'Project details', formSend:'Send request',
+    infoTitle:'Get in touch', infoEmail:'Email', infoPhone:'Mobile · WhatsApp', infoFollow:'Follow us',
+  },
+  fr: {
+    dir:'ltr',
+    navAbout:'À propos', navCap:'Compétences', navWhy:'Pourquoi nous', navProjects:'Types de projets', navCoverage:'Portée', navProcess:'Processus', navCta:'Demander un devis',
+    heroBadge:'Entreprise générale',
+    heroTitle:'L\u2019entreprise générale, bâtie sur la confiance.',
+    heroSub:'Nous réalisons des projets structurels, résidentiels, commerciaux et d\u2019énergie renouvelable — de la conception et des permis à la construction et la livraison.',
+    ctaPrimary:'Demander un devis', ctaSecondary:'Voir nos compétences',
+    heroStat3:'Livraison de bout en bout',
+    whoEyebrow:'Introduction', whoTitle:'Qui sommes-nous',
+    whoSub:'Arara BX est une entreprise générale réalisant des projets structurels, résidentiels, commerciaux et d\u2019énergie renouvelable, partout où nos clients construisent.',
+    whoCards:[{k:'Où que vous construisiez',d:'Des équipes mobiles prêtes à intervenir sur tout site.'},{k:'Service complet',d:'De la conception et des permis à la construction et la livraison.'},{k:'Quatre piliers',d:'Exécution · Éthique · Transparence · Expertise.'}],
+    capEyebrow:'Compétences', capTitle:'Ce que nous faisons', capSub:'Des compétences intégrées sous une équipe responsable.',
+    caps:[{n:'01',t:'Entreprise générale',d:'Réalisation de projets de bout en bout.'},{n:'02',t:'Travaux structurels',d:'Béton, acier, fondations.'},{n:'03',t:'Aménagement intérieur',d:'Finitions, MEP, menuiserie.'},{n:'04',t:'Projets commerciaux',d:'Commerces, bureaux, hôtellerie.'},{n:'05',t:'Villas résidentielles',d:'Maisons sur mesure, bâties pour durer.'},{n:'06',t:'Rénovation',d:'Du patrimoine au moderne.'},{n:'07',t:'Solaire & renouvelable',d:'Systèmes photovoltaïques & énergie.'},{n:'08',t:'Travaux électriques',d:'Câblage, éclairage, systèmes intelligents.'}],
+    whyEyebrow:'Différenciation', whyTitle:'Pourquoi nous choisir', whySub:'Bâti sur l\u2019ingénierie, l\u2019éthique et la responsabilité.',
+    pillars:[{n:'01',t:'Exécution',d:'Des projets livrés à temps, à chaque fois. Suivi quotidien, revues hebdomadaires.'},{n:'02',t:'Éthique',d:'Prix honnêtes. Pas d\u2019avenants surprises. Aucun compromis sur les matériaux.'},{n:'03',t:'Transparence',d:'Communication claire du premier devis à la livraison finale.'},{n:'04',t:'Expertise',d:'Équipes qualifiées, méthodes modernes, résultats prouvés.'}],
+    projEyebrow:'Types de projets', projTitle:'Ce que nous construisons',
+    projSub:'Les types de projets que nous pouvons réaliser \u2014 des villas privées aux hôpitaux, immeubles résidentiels et espaces commerciaux.',
+    projs:[{k:'Résidentiel',t:'Villas privées'},{k:'Santé',t:'Hôpitaux & cliniques'},{k:'Résidentiel',t:'Immeubles résidentiels'},{k:'Commercial',t:'Bureaux & commerces'},{k:'Hôtellerie',t:'Hôtels & resorts'},{k:'Énergie',t:'Solaire & renouvelable'}],
+    covEyebrow:'Portée', covTitle:'Où que soit le projet', covSub:'Équipes mobiles, prêtes à intervenir. Où que soit le projet, nous y allons.',
+    covCaption:'',
+    regions:[{name:'Résidentiel'},{name:'Commercial'},{name:'Santé'},{name:'Hôtellerie'},{name:'Énergie'}],
+    covStat1:'Secteurs couverts', covStat2:'Intervention sur tout site',
+    procEyebrow:'Processus', procTitle:'Comment nous travaillons', procSub:'Quatre étapes. Sans surprises.',
+    steps:[{n:'01',t:'Consulter',d:'Comprendre votre vision, le site et les contraintes, en personne.'},{n:'02',t:'Planifier',d:'Périmètre détaillé, prix transparent, calendrier réaliste.'},{n:'03',t:'Construire',d:'Équipes qualifiées, suivi quotidien, contrôle qualité strict.'},{n:'04',t:'Livrer',d:'Dans les délais, dans le budget, avec documentation complète.'}],
+    contactEyebrow:'Contact', contactTitle:'Contactez-nous', contactSub:'Parlez-nous de l\u2019espace et du calendrier. Réponse sous un jour ouvrable.',
+    formName:'Nom', formEmail:'E-mail', formType:'Type de travaux', formDetails:'Détails du projet', formSend:'Envoyer la demande',
+    infoTitle:'Contactez-nous', infoEmail:'E-mail', infoPhone:'Mobile · WhatsApp', infoFollow:'Suivez-nous',
+  },
+  ar: {
+    dir:'rtl',
+    navAbout:'من نحن', navCap:'قدراتنا', navWhy:'لماذا نحن', navProjects:'أنواع المشاريع', navCoverage:'انتشارنا', navProcess:'آلية العمل', navCta:'اطلب عرض سعر',
+    heroBadge:'مقاولات عامة',
+    heroTitle:'مقاولات عامة مبنية على الثقة.',
+    heroSub:'ننفّذ مشاريع إنشائية وسكنية وتجارية ومشاريع طاقة متجددة — من التصميم والتراخيص حتى التنفيذ والتسليم.',
+    ctaPrimary:'اطلب عرض سعر', ctaSecondary:'تعرّف على قدراتنا',
+    heroStat3:'تنفيذ متكامل',
+    whoEyebrow:'مقدمة', whoTitle:'من نحن',
+    whoSub:'أرارا BX مقاول عام ينفّذ مشاريع إنشائية وسكنية وتجارية ومشاريع طاقة متجددة أينما يبني عملاؤنا.',
+    whoCards:[{k:'أينما تبني',d:'فرق متنقلة جاهزة للانتشار في أي موقع.'},{k:'خدمة متكاملة',d:'من التصميم والتراخيص حتى التنفيذ والتسليم.'},{k:'أربع ركائز',d:'التنفيذ · الأخلاق · الشفافية · الخبرة.'}],
+    capEyebrow:'قدراتنا', capTitle:'ماذا نقدّم', capSub:'قدرات متكاملة تحت فريق واحد مسؤول.',
+    caps:[{n:'٠١',t:'المقاولات العامة',d:'تنفيذ المشاريع من البداية إلى النهاية.'},{n:'٠٢',t:'الأعمال الإنشائية',d:'خرسانة، حديد، وأساسات.'},{n:'٠٣',t:'التشطيبات الداخلية',d:'تشطيبات، أنظمة، ونجارة.'},{n:'٠٤',t:'المشاريع التجارية',d:'تجزئة، مكاتب، وضيافة.'},{n:'٠٥',t:'الفلل السكنية',d:'منازل مخصّصة، بُنيت لتدوم.'},{n:'٠٦',t:'الترميم',d:'من التراثي إلى التحديث الكامل.'},{n:'٠٧',t:'الطاقة الشمسية والمتجددة',d:'أنظمة طاقة شمسية.'},{n:'٠٨',t:'الأعمال الكهربائية',d:'تمديدات، إنارة، أنظمة ذكية.'}],
+    whyEyebrow:'تميّزنا', whyTitle:'لماذا تختارنا', whySub:'مبنيّ على الهندسة والأخلاق والمسؤولية.',
+    pillars:[{n:'٠١',t:'التنفيذ',d:'مشاريع تُسلّم في وقتها دائماً. إشراف يومي ومراجعات أسبوعية.'},{n:'٠٢',t:'الأخلاق',d:'تسعير صادق. لا تغييرات مفاجئة. لا تنازل عن جودة المواد.'},{n:'٠٣',t:'الشفافية',d:'تواصل واضح من أول عرض سعر حتى التسليم النهائي.'},{n:'٠٤',t:'الخبرة',d:'فرق ماهرة، أساليب حديثة، نتائج مثبتة عبر أنواع المشاريع.'}],
+    projEyebrow:'أنواع المشاريع', projTitle:'ما يمكننا بناؤه',
+    projSub:'أنواع المشاريع التي يمكننا تنفيذها — من الفلل الخاصة إلى المستشفيات والمباني السكنية والمساحات التجارية.',
+    projs:[{k:'سكني',t:'فلل خاصة'},{k:'قطاع صحي',t:'مستشفيات وعيادات'},{k:'سكني',t:'مبانٍ سكنية'},{k:'تجاري',t:'مكاتب ومحلات'},{k:'ضيافة',t:'فنادق ومنتجعات'},{k:'طاقة',t:'طاقة شمسية ومتجددة'}],
+    covEyebrow:'انتشارنا', covTitle:'أينما كان المشروع', covSub:'فرق متنقلة جاهزة للانتشار. أينما كان المشروع، نصل إليه.',
+    covCaption:'',
+    regions:[{name:'سكني'},{name:'تجاري'},{name:'قطاع صحي'},{name:'ضيافة'},{name:'طاقة'}],
+    covStat1:'قطاعات نخدمها', covStat2:'استجابة لأي موقع',
+    procEyebrow:'آلية العمل', procTitle:'كيف نعمل', procSub:'أربع خطوات. بلا مفاجآت.',
+    steps:[{n:'٠١',t:'نستشير',d:'نفهم رؤيتك وموقعك وقيودك شخصياً.'},{n:'٠٢',t:'نخطّط',d:'نطاق مفصّل، تسعير شفاف، جدول واقعي.'},{n:'٠٣',t:'ننفّذ',d:'فرق ماهرة، إشراف يومي، رقابة صارمة على الجودة.'},{n:'٠٤',t:'نسلّم',d:'في الموعد، ضمن الميزانية، مع توثيق كامل.'}],
+    contactEyebrow:'تواصل', contactTitle:'تواصل معنا', contactSub:'أخبرنا عن المشروع والجدول الزمني. سنردّ خلال يوم عمل واحد.',
+    formName:'الاسم', formEmail:'البريد الإلكتروني', formType:'نوع العمل', formDetails:'تفاصيل المشروع', formSend:'إرسال الطلب',
+    infoTitle:'تواصل معنا', infoEmail:'البريد الإلكتروني', infoPhone:'الجوال · واتساب', infoFollow:'تابعنا',
+  },
+  it: {
+    dir:'ltr',
+    navAbout:'Chi siamo', navCap:'Competenze', navWhy:'Perché noi', navProjects:'Tipi di progetto', navCoverage:'Portata', navProcess:'Processo', navCta:'Richiedi un preventivo',
+    heroBadge:'Impresa generale di costruzioni',
+    heroTitle:'Costruzioni generali, fondate sulla fiducia.',
+    heroSub:'Realizziamo progetti strutturali, residenziali, commerciali e di energia rinnovabile — dalla progettazione e i permessi fino alla costruzione e alla consegna.',
+    ctaPrimary:'Richiedi un preventivo', ctaSecondary:'Le nostre competenze',
+    heroStat3:'Consegna chiavi in mano',
+    whoEyebrow:'Introduzione', whoTitle:'Chi siamo',
+    whoSub:'Arara BX è un\u2019impresa generale che realizza progetti strutturali, residenziali, commerciali e di energia rinnovabile, ovunque costruiscano i nostri clienti.',
+    whoCards:[{k:'Ovunque costruiate',d:'Squadre mobili pronte a intervenire su qualsiasi cantiere.'},{k:'Servizio completo',d:'Dalla progettazione e i permessi fino alla costruzione e alla consegna.'},{k:'Quattro pilastri',d:'Esecuzione · Etica · Trasparenza · Competenza.'}],
+    capEyebrow:'Competenze', capTitle:'Cosa facciamo', capSub:'Competenze integrate sotto un unico team responsabile.',
+    caps:[{n:'01',t:'Impresa generale',d:'Realizzazione di progetti chiavi in mano.'},{n:'02',t:'Opere strutturali',d:'Calcestruzzo, acciaio, fondazioni.'},{n:'03',t:'Allestimento interni',d:'Finiture, impianti, falegnameria.'},{n:'04',t:'Progetti commerciali',d:'Retail, uffici, ospitalità.'},{n:'05',t:'Ville residenziali',d:'Case su misura, costruite per durare.'},{n:'06',t:'Ristrutturazione',d:'Dal patrimonio storico al moderno.'},{n:'07',t:'Solare e rinnovabili',d:'Impianti fotovoltaici ed energia.'},{n:'08',t:'Impianti elettrici',d:'Cablaggi, illuminazione, sistemi smart.'}],
+    whyEyebrow:'Differenziazione', whyTitle:'Perché sceglierci', whySub:'Fondati su ingegneria, etica e responsabilità.',
+    pillars:[{n:'01',t:'Esecuzione',d:'Progetti consegnati in tempo, ogni volta. Supervisione quotidiana, revisioni settimanali.'},{n:'02',t:'Etica',d:'Prezzi onesti. Nessuna variante a sorpresa. Nessun compromesso sui materiali.'},{n:'03',t:'Trasparenza',d:'Comunicazione chiara dal primo preventivo alla consegna finale.'},{n:'04',t:'Competenza',d:'Squadre qualificate, metodi moderni, risultati provati.'}],
+    projEyebrow:'Tipi di progetto', projTitle:'Cosa possiamo costruire',
+    projSub:'I tipi di progetto che possiamo realizzare — dalle ville private a ospedali, edifici residenziali e spazi commerciali.',
+    projs:[{k:'Residenziale',t:'Ville private'},{k:'Sanità',t:'Ospedali e cliniche'},{k:'Residenziale',t:'Edifici residenziali'},{k:'Commerciale',t:'Uffici e retail'},{k:'Ospitalità',t:'Hotel e resort'},{k:'Energia',t:'Solare e rinnovabili'}],
+    covEyebrow:'Portata', covTitle:'Ovunque sia il progetto', covSub:'Squadre mobili, pronte a partire. Ovunque sia il progetto, ci arriviamo.',
+    covCaption:'',
+    regions:[{name:'Residenziale'},{name:'Commerciale'},{name:'Sanità'},{name:'Ospitalità'},{name:'Energia'}],
+    covStat1:'Settori coperti', covStat2:'Intervento su ogni cantiere',
+    procEyebrow:'Processo', procTitle:'Come lavoriamo', procSub:'Quattro fasi. Nessuna sorpresa.',
+    steps:[{n:'01',t:'Consultare',d:'Capire la vostra visione, il sito e i vincoli, di persona.'},{n:'02',t:'Pianificare',d:'Perimetro dettagliato, prezzi trasparenti, tempi realistici.'},{n:'03',t:'Costruire',d:'Squadre qualificate, supervisione quotidiana, controllo qualità rigoroso.'},{n:'04',t:'Consegnare',d:'Nei tempi, nel budget, con documentazione completa.'}],
+    contactEyebrow:'Contatti', contactTitle:'Contattaci', contactSub:'Raccontateci lo spazio e le tempistiche. Rispondiamo entro un giorno lavorativo.',
+    formName:'Nome', formEmail:'E-mail', formType:'Tipo di lavoro', formDetails:'Dettagli del progetto', formSend:'Invia richiesta',
+    infoTitle:'Contattaci', infoEmail:'E-mail', infoPhone:'Cellulare · WhatsApp', infoFollow:'Seguiteci',
+  },
+  de: {
+    dir:'ltr',
+    navAbout:'Über uns', navCap:'Leistungen', navWhy:'Warum wir', navProjects:'Projektarten', navCoverage:'Reichweite', navProcess:'Ablauf', navCta:'Angebot anfordern',
+    heroBadge:'Generalunternehmen',
+    heroTitle:'Generalbau, auf Vertrauen gebaut.',
+    heroSub:'Wir realisieren Rohbau-, Wohn-, Gewerbe- und Erneuerbare-Energien-Projekte — durchgängig, von Planung und Genehmigung bis zu Bau und Übergabe.',
+    ctaPrimary:'Angebot anfordern', ctaSecondary:'Unsere Leistungen',
+    heroStat3:'Schlüsselfertige Abwicklung',
+    whoEyebrow:'Einführung', whoTitle:'Wer wir sind',
+    whoSub:'Arara BX ist ein Generalunternehmer für Rohbau-, Wohn-, Gewerbe- und Erneuerbare-Energien-Projekte — überall dort, wo unsere Kunden bauen.',
+    whoCards:[{k:'Wo immer Sie bauen',d:'Mobile Teams, einsatzbereit auf jeder Baustelle.'},{k:'Komplettservice',d:'Von Planung und Genehmigung bis zu Bau und Übergabe.'},{k:'Vier Säulen',d:'Ausführung · Ethik · Transparenz · Fachwissen.'}],
+    capEyebrow:'Leistungen', capTitle:'Was wir tun', capSub:'Integrierte Leistungen unter einem verantwortlichen Team.',
+    caps:[{n:'01',t:'Generalunternehmen',d:'Schlüsselfertige Projektabwicklung.'},{n:'02',t:'Rohbauarbeiten',d:'Beton, Stahl, Fundamente.'},{n:'03',t:'Innenausbau',d:'Ausbau, Haustechnik, Schreinerarbeiten.'},{n:'04',t:'Gewerbeprojekte',d:'Handel, Büros, Gastgewerbe.'},{n:'05',t:'Wohnvillen',d:'Maßgeschneiderte Häuser, gebaut für Generationen.'},{n:'06',t:'Sanierung',d:'Vom Altbau bis zur Modernisierung.'},{n:'07',t:'Solar & Erneuerbare',d:'Photovoltaik & Energiesysteme.'},{n:'08',t:'Elektroarbeiten',d:'Verkabelung, Beleuchtung, Smart-Systeme.'}],
+    whyEyebrow:'Unterscheidung', whyTitle:'Warum wir', whySub:'Gebaut auf Ingenieurskunst, Ethik und Verantwortung.',
+    pillars:[{n:'01',t:'Ausführung',d:'Projekte pünktlich geliefert, jedes Mal. Tägliche Aufsicht, wöchentliche Reviews.'},{n:'02',t:'Ethik',d:'Ehrliche Preise. Keine überraschenden Nachträge. Keine Abstriche beim Material.'},{n:'03',t:'Transparenz',d:'Klare Kommunikation vom ersten Angebot bis zur Übergabe.'},{n:'04',t:'Fachwissen',d:'Qualifizierte Teams, moderne Methoden, bewiesene Ergebnisse.'}],
+    projEyebrow:'Projektarten', projTitle:'Was wir bauen können',
+    projSub:'Die Projektarten, die wir realisieren können — von Privatvillen über Krankenhäuser bis zu Wohngebäuden und Gewerbeflächen.',
+    projs:[{k:'Wohnen',t:'Privatvillen'},{k:'Gesundheit',t:'Krankenhäuser & Kliniken'},{k:'Wohnen',t:'Wohngebäude'},{k:'Gewerbe',t:'Büros & Handel'},{k:'Gastgewerbe',t:'Hotels & Resorts'},{k:'Energie',t:'Solar & Erneuerbare'}],
+    covEyebrow:'Reichweite', covTitle:'Wo immer das Projekt ist', covSub:'Mobile Teams, einsatzbereit. Wo immer das Projekt ist, wir sind da.',
+    covCaption:'',
+    regions:[{name:'Wohnen'},{name:'Gewerbe'},{name:'Gesundheit'},{name:'Gastgewerbe'},{name:'Energie'}],
+    covStat1:'Abgedeckte Sektoren', covStat2:'Einsatz auf jeder Baustelle',
+    procEyebrow:'Ablauf', procTitle:'Wie wir arbeiten', procSub:'Vier Schritte. Keine Überraschungen.',
+    steps:[{n:'01',t:'Beraten',d:'Ihre Vision, das Grundstück und die Rahmenbedingungen persönlich verstehen.'},{n:'02',t:'Planen',d:'Detaillierter Umfang, transparente Preise, realistischer Zeitplan.'},{n:'03',t:'Bauen',d:'Qualifizierte Teams, tägliche Aufsicht, strenge Qualitätskontrolle.'},{n:'04',t:'Übergeben',d:'Termingerecht, im Budget, mit vollständiger Dokumentation.'}],
+    contactEyebrow:'Kontakt', contactTitle:'Kontaktieren Sie uns', contactSub:'Erzählen Sie uns von Objekt und Zeitplan. Antwort innerhalb eines Werktags.',
+    formName:'Name', formEmail:'E-Mail', formType:'Art der Arbeiten', formDetails:'Projektdetails', formSend:'Anfrage senden',
+    infoTitle:'Kontakt', infoEmail:'E-Mail', infoPhone:'Mobil · WhatsApp', infoFollow:'Folgen Sie uns',
+  },
+  es: {
+    dir:'ltr',
+    navAbout:'Nosotros', navCap:'Capacidades', navWhy:'Por qué nosotros', navProjects:'Tipos de proyecto', navCoverage:'Alcance', navProcess:'Proceso', navCta:'Solicitar presupuesto',
+    heroBadge:'Contratista general',
+    heroTitle:'Construcción general, basada en la confianza.',
+    heroSub:'Ejecutamos proyectos estructurales, residenciales, comerciales y de energía renovable — de principio a fin, desde el diseño y los permisos hasta la construcción y la entrega.',
+    ctaPrimary:'Solicitar presupuesto', ctaSecondary:'Ver capacidades',
+    heroStat3:'Entrega llave en mano',
+    whoEyebrow:'Introducción', whoTitle:'Quiénes somos',
+    whoSub:'Arara BX es un contratista general que ejecuta proyectos estructurales, residenciales, comerciales y de energía renovable, dondequiera que construyan nuestros clientes.',
+    whoCards:[{k:'Donde usted construya',d:'Equipos móviles listos para desplegarse en cualquier obra.'},{k:'Servicio integral',d:'Desde el diseño y los permisos hasta la construcción y la entrega.'},{k:'Cuatro pilares',d:'Ejecución · Ética · Transparencia · Experiencia.'}],
+    capEyebrow:'Capacidades', capTitle:'Qué hacemos', capSub:'Capacidades integradas bajo un solo equipo responsable.',
+    caps:[{n:'01',t:'Contratación general',d:'Ejecución de proyectos de principio a fin.'},{n:'02',t:'Obra estructural',d:'Hormigón, acero, cimentaciones.'},{n:'03',t:'Acondicionamiento interior',d:'Acabados, instalaciones, carpintería.'},{n:'04',t:'Proyectos comerciales',d:'Retail, oficinas, hostelería.'},{n:'05',t:'Villas residenciales',d:'Casas a medida, construidas para durar.'},{n:'06',t:'Renovación',d:'Del patrimonio a lo moderno.'},{n:'07',t:'Solar y renovables',d:'Sistemas fotovoltaicos y energía.'},{n:'08',t:'Instalaciones eléctricas',d:'Cableado, iluminación, sistemas inteligentes.'}],
+    whyEyebrow:'Diferenciación', whyTitle:'Por qué elegirnos', whySub:'Basados en ingeniería, ética y responsabilidad.',
+    pillars:[{n:'01',t:'Ejecución',d:'Proyectos entregados a tiempo, siempre. Supervisión diaria, revisiones semanales.'},{n:'02',t:'Ética',d:'Precios honestos. Sin sorpresas ni extras ocultos. Sin atajos en materiales.'},{n:'03',t:'Transparencia',d:'Comunicación clara desde el primer presupuesto hasta la entrega final.'},{n:'04',t:'Experiencia',d:'Equipos cualificados, métodos modernos, resultados probados.'}],
+    projEyebrow:'Tipos de proyecto', projTitle:'Qué podemos construir',
+    projSub:'Los tipos de proyecto que podemos ejecutar — desde villas privadas hasta hospitales, edificios residenciales y espacios comerciales.',
+    projs:[{k:'Residencial',t:'Villas privadas'},{k:'Salud',t:'Hospitales y clínicas'},{k:'Residencial',t:'Edificios residenciales'},{k:'Comercial',t:'Oficinas y retail'},{k:'Hostelería',t:'Hoteles y resorts'},{k:'Energía',t:'Solar y renovables'}],
+    covEyebrow:'Alcance', covTitle:'Donde esté el proyecto', covSub:'Equipos móviles, listos para desplegarse. Donde esté el proyecto, llegamos.',
+    covCaption:'',
+    regions:[{name:'Residencial'},{name:'Comercial'},{name:'Salud'},{name:'Hostelería'},{name:'Energía'}],
+    covStat1:'Sectores cubiertos', covStat2:'Respuesta en cualquier obra',
+    procEyebrow:'Proceso', procTitle:'Cómo trabajamos', procSub:'Cuatro pasos. Sin sorpresas.',
+    steps:[{n:'01',t:'Consultar',d:'Entender su visión, el terreno y las restricciones, en persona.'},{n:'02',t:'Planificar',d:'Alcance detallado, precios transparentes, plazos realistas.'},{n:'03',t:'Construir',d:'Equipos cualificados, supervisión diaria, control de calidad estricto.'},{n:'04',t:'Entregar',d:'A tiempo, dentro del presupuesto, con documentación completa.'}],
+    contactEyebrow:'Contacto', contactTitle:'Contáctenos', contactSub:'Cuéntenos sobre el espacio y los plazos. Respondemos en un día laborable.',
+    formName:'Nombre', formEmail:'Correo', formType:'Tipo de obra', formDetails:'Detalles del proyecto', formSend:'Enviar solicitud',
+    infoTitle:'Contacto', infoEmail:'Correo', infoPhone:'Móvil · WhatsApp', infoFollow:'Síganos',
+  },
+};
+class Component extends DCLogic {
+  state = { lang: null, langMenuOpen: false };
+  setLang(l){ this.setState({ lang: l, langMenuOpen: false }); }
+  setRoot = (el) => { this._root = el; if (el) this.applyVars(); };
+  applyVars() {
+    const el = this._root; if (!el) return;
+    const theme = this.props.navTheme ?? 'White';
+    const themes = {
+      'White':      { bg:'rgba(255,255,255,.97)', link:'#3D4453', ink:'#0A0F1E' },
+      'Dark navy':  { bg:'rgba(10,15,30,.96)',    link:'#C4D2EC', ink:'#FFFFFF' },
+      'Brand blue': { bg:'rgba(31,79,158,.97)',   link:'#DCE8FA', ink:'#FFFFFF' },
+    };
+    const th = themes[theme] || themes['White'];
+    el.style.setProperty('--navBg', th.bg);
+    el.style.setProperty('--navLink', th.link);
+    el.style.setProperty('--navInk', th.ink);
+    el.style.setProperty('--navSize', (this.props.menuSize ?? 15) + 'px');
+    el.style.setProperty('--tm', String(this.props.titleScale ?? 1));
+    el.style.setProperty('--acc', this.props.accent ?? '#E0231C');
+  }
+  componentDidMount() {
+    if (typeof window === 'undefined') return;
+    this._check = () => this.checkReveal();
+    window.addEventListener('scroll', this._check, { passive: true });
+    window.addEventListener('resize', this._check, { passive: true });
+    requestAnimationFrame(this._check);
+    this._safety = setTimeout(() => {
+      document.querySelectorAll('[data-reveal]').forEach(e => { e.style.opacity='1'; e.style.transform='none'; });
+    }, 2600);
+  }
+  componentDidUpdate() { if (typeof window!=='undefined') { this.applyVars(); requestAnimationFrame(this._check || (()=>{})); } }
+  componentWillUnmount() {
+    if (typeof window === 'undefined') return;
+    window.removeEventListener('scroll', this._check);
+    window.removeEventListener('resize', this._check);
+    clearTimeout(this._safety);
+  }
+  checkReveal() {
+    const vh = window.innerHeight || 800;
+    document.querySelectorAll('[data-reveal]:not([data-seen])').forEach(e => {
+      if (e.getBoundingClientRect().top < vh * 0.92) {
+        e.setAttribute('data-seen','1');
+        const d = parseInt(e.getAttribute('data-delay')||'0',10);
+        e.style.transitionDelay = d+'ms';
+        e.style.opacity='1'; e.style.transform='none';
+      }
+    });
+  }
+  renderVals() {
+    const langMap = { 'English':'en','French':'fr','Italian':'it','German':'de','Spanish':'es','Arabic':'ar' };
+    const lang = this.state.lang || langMap[this.props.language ?? 'English'] || 'en';
+    const t = T[lang] || T.en;
+    const on = '#fff', off = '#3D4453', onBg = '#0A0F1E', offBg = 'transparent';
+    return {
+      t, dir: t.dir,
+      caps: t.caps, pillars: t.pillars, steps: t.steps, whoCards: t.whoCards, regions: t.regions, projs: t.projs, setRoot: this.setRoot,
+      langs: [['en','EN','English'],['fr','FR','Français'],['it','IT','Italiano'],['de','DE','Deutsch'],['es','ES','Español'],['ar','ع','العربية']].map(([code,label,name]) => ({
+        label, name, set: () => this.setLang(code),
+        itemColor: lang===code?'#1F4F9E':'#0A0F1E', itemBg: lang===code?'#F0F3FA':'transparent',
+      })),
+      currentLangLabel: ({en:'EN',fr:'FR',it:'IT',de:'DE',es:'ES',ar:'عربي'})[lang],
+      langMenuOpen: this.state.langMenuOpen,
+      toggleLangMenu: (e) => {
+        const wrap = e && e.currentTarget ? e.currentTarget.parentElement : null;
+        // Decide PHYSICALLY: anchor panel's right edge to trigger if that keeps it on-screen, else left edge.
+        let phys = 'right';
+        if (wrap) {
+          const r = wrap.getBoundingClientRect();
+          if (r.right - 168 < 8) phys = 'left';
+        }
+        this.setState(s => ({ langMenuOpen: !s.langMenuOpen, langMenuPhys: phys }));
+      },
+      langMenuLeft: (this.state.langMenuPhys ?? 'right') === 'left' ? '0' : 'auto',
+      langMenuRight: (this.state.langMenuPhys ?? 'right') === 'right' ? '0' : 'auto',
+    };
+  }
+}
+</script>
+</body>
+</html>
